@@ -6,9 +6,9 @@ import "./productdetail.css";
 function ProductDetails({ updateCartCount }) {
     const { id } = useParams();
     const navigate = useNavigate();
-    const [showPopup, setShowPopup] = useState(false);
+    const [showPopup] = useState(false);
     const [product, setProduct] = useState(null);
-    const [isInCart, setIsInCart] = useState(false);
+    const [isInCart] = useState(false);
 
 
     useEffect(() => {
@@ -20,31 +20,7 @@ function ProductDetails({ updateCartCount }) {
         return <h2>Product not found</h2>;
     }
 
-    const handleAddToCart = () => {
-        let cart = JSON.parse(localStorage.getItem("cart")) || [];
-        const existingProduct = cart.find((item) => item.id === product.id);
-
-        if (existingProduct) {
-            existingProduct.quantity += 1;
-        } else {
-            cart.push({ ...product, quantity: 1 });
-        }
-
-        localStorage.setItem("cart", JSON.stringify(cart));
-
-        if (typeof updateCartCount === "function") {
-            updateCartCount();
-        }
-        setIsInCart(true);
-
-
-        setShowPopup(true);
-        setTimeout(() => {
-            setShowPopup(false);
-            navigate(ProductDetails);
-        }, 1000);
-    };
-
+    
     return (
         <div className="product-detail-container">
             <img src={`/images/${product.image}`} alt={product.title} className="product-image" />
