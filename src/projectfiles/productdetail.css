@@ -104,3 +104,71 @@
     display: flex;
     justify-content: space-around;
 }
+
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+    .product-detail-container {
+        flex-direction: column;  /* Stack items vertically */
+        padding: 20px;
+        text-align: center;
+    }
+
+    .product-image {
+        width: 80%;  /* Scale image to fit */
+        max-width: 250px;
+    }
+
+    .product-info h1 {
+        font-size: 24px;
+    }
+
+    .product-info h3 {
+        font-size: 20px;
+    }
+
+    .product-info p {
+        font-size: 14px;
+    }
+
+    .button-group {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .button-group button {
+        width: 100%;  /* Full width buttons */
+        padding: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .product-detail-container {
+        padding: 15px;
+    }
+
+    .product-image {
+        width: 100%;  /* Full width on very small screens */
+        max-width: 220px;
+    }
+
+    .product-info h1 {
+        font-size: 22px;
+    }
+
+    .product-info h3 {
+        font-size: 18px;
+    }
+
+    .product-info p {
+        font-size: 13px;
+    }
+
+    .button-group {
+        gap: 8px;
+    }
+
+    .popup-content {
+        width: 90%;
+    }
+}

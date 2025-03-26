@@ -2,102 +2,75 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import productsData from "./cardsdata.json";
 import "./cardsdata.css";
-import { FaThLarge, FaList } from "react-icons/fa";
-
 
 function CardsData({ searchQuery = "", setCartCount }) {
     const navigate = useNavigate();
-    const [showPopup, setShowPopup] = useState(false);
     const [cartItems, setCartItems] = useState([]);
-    const [view, setView] = useState("grid");
+    const [view] = useState("grid");
     const [sortOrder, setSortOrder] = useState("relevance");
     const [filteredProducts, setFilteredProducts] = useState([]);
 
-    
     useEffect(() => {
         const cart = JSON.parse(localStorage.getItem("cart")) || [];
         setCartItems(cart.map(item => item.id));
-    }, []);
+        sortProducts(productsData, searchQuery, sortOrder, cart);
+    }, [searchQuery, sortOrder]);  
 
-    const shuffleArray = (array) => {
-        let shuffledArray = [...array];
-        for (let i = shuffledArray.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
-        }
-        return shuffledArray;
-    };
-
-    useEffect(() => {
-        let sortedProducts = [...productsData].filter(product =>
-            product.title.toLowerCase().includes(searchQuery.toLowerCase())
+    const sortProducts = (products, query, order, cart) => {
+        let sortedProducts = [...products].filter(product =>
+            product.title.toLowerCase().includes(query.toLowerCase())
         );
 
-        if (sortOrder === "lowToHigh") {
-            sortedProducts.sort((a, b) => parseFloat(a.price.replace(/,/g, "")) - parseFloat(b.price.replace(/,/g, "")));
-        } else if (sortOrder === "highToLow") {
-            sortedProducts.sort((a, b) => parseFloat(b.price.replace(/,/g, "")) - parseFloat(a.price.replace(/,/g, "")));
-        } else {
-            sortedProducts = shuffleArray(sortedProducts);
-        }
+        const cartProductIds = cart.map(item => item.id);
+        sortedProducts.sort((a, b) => {
+            const aInCart = cartProductIds.includes(a.id);
+            const bInCart = cartProductIds.includes(b.id);
 
-        console.log("Sort Order:", sortOrder, "Sorted Products:", sortedProducts);
+            if (aInCart && !bInCart) return -1;
+            if (!aInCart && bInCart) return 1;
+
+            if (order === "lowToHigh") {
+                return parseFloat(a.price.replace(/,/g, "")) - parseFloat(b.price.replace(/,/g, ""));
+            } else if (order === "highToLow") {
+                return parseFloat(b.price.replace(/,/g, "")) - parseFloat(a.price.replace(/,/g, ""));
+            }
+
+            return 0; 
+        });
+
         setFilteredProducts(sortedProducts);
-    }, [searchQuery, sortOrder]);
+    };
 
     const handleAddToCart = (product) => {
         let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-        const existingProductIndex = cart.findIndex((item) => item.id === product.id);
+        const existingProductIndex = cart.findIndex(item => item.id === product.id);
         if (existingProductIndex !== -1) {
             cart[existingProductIndex].quantity += 1;
         } else {
-            cart.push({ ...product, quantity: 1 });
+            cart.unshift({ ...product, quantity: 1 });
         }
 
         localStorage.setItem("cart", JSON.stringify(cart));
         setCartCount(cart.reduce((acc, item) => acc + item.quantity, 0));
         setCartItems(cart.map(item => item.id));
 
-        setShowPopup(true);
-        setTimeout(() => {
-            setShowPopup(false);
-        }, 500);
+        sortProducts(productsData, searchQuery, sortOrder, cart);
     };
 
     return (
         <div className="whole">
-           
             <div className="product-toolbar">
-                <div className="view-options">
-                    <span>View As</span>
-                    <button className={`grid-icon ${view === "grid" ? "active" : ""}`}
-                        onClick={() => setView("grid")}
-                        title="Grid View">
-                        <FaThLarge />
-                    </button>
-
-                    <button className={`list-icon ${view === "list" ? "active" : ""}`}
-                        onClick={() => setView("list")}
-                        title="List View">
-                        <FaList />
-                    </button>
-
-
-                </div>
                 <span>{filteredProducts.length} products</span>
                 <div className="sort-options">
-                    <label>SORT BY:</label>
+                    <label>Sort by:</label>
                     <select
                         value={sortOrder}
-                        onChange={(e) => {
-                            console.log("Sort Order Changed To:", e.target.value);
-                            setSortOrder(e.target.value);
-                        }}
+                        onChange={(e) => setSortOrder(e.target.value)}
                     >
                         <option value="relevance">Relevance</option>
-                        <option value="lowToHigh">Price ascending</option>
-                        <option value="highToLow">Price descending</option>
+                        <option value="lowToHigh">Price low to high</option>
+                        <option value="highToLow">Price high to low</option>
                     </select>
                 </div>
             </div>
@@ -105,7 +78,7 @@ function CardsData({ searchQuery = "", setCartCount }) {
             <div className={`product-container ${view}`}>
                 {filteredProducts.length > 0 ? (
                     filteredProducts.map((product) => (
-                        <div key={`${product.id}-${sortOrder}`} className={`card ${view}`}>
+                        <div key={product.id} className={`card ${view}`}>
                             <Link to={`/product/${product.id}`} className="card-link">
                                 <img src={product.image} className="card-img-top" alt={product.title} />
                                 <div className="card-body">
@@ -114,8 +87,6 @@ function CardsData({ searchQuery = "", setCartCount }) {
                                 </div>
                             </Link>
 
-                             
-                            
                             {cartItems.includes(product.id) ? (
                                 <button className="batc" onClick={() => navigate("/mycart")}>
                                     View in Cart
@@ -131,14 +102,6 @@ function CardsData({ searchQuery = "", setCartCount }) {
                     <p className="text-center">No products found.</p>
                 )}
             </div>
-
-            {showPopup && (
-                <div className="popup-overlay">
-                    <div className="popup-content">
-                        <h4>✅ Successfully added to cart!</h4>
-                    </div>
-                </div>
-            )}
         </div>
     );
 }

@@ -6,6 +6,11 @@
     font-size: 30px;
     margin-left: 10px;
 }
+.App-logo{
+    width: 30px;
+    height: 30px;
+    margin-right: 5px;
+}
 
 .product {
     text-align: center;
@@ -61,7 +66,58 @@
     background: red;
     border-radius: 5px;
     padding: 0px 3px;
-    margin-left: 5px;
-    
-    
+    margin-left: 5px;   
+}
+
+@media screen and (max-width: 768px) {
+    .navbar {
+        height: 50px;
+        padding: 5px;
+    }
+
+    .navbar-brand {
+        font-size: 20px;
+    }
+
+    .App-logo {
+        width: 20px;
+        height: 20px;
+    }
+
+    .seacrhbar {
+        width: 150px;
+        padding: 5px 10px;
+    }
+
+    .bc {
+        padding: 5px 10px;
+        font-size: 14px;
+    }
+
+    .cartco {
+        padding: 1px 5px;
+        font-size: 10px;
+    }
+}
+
+/* Even Smaller Screens */
+@media screen and (max-width: 480px) {
+    .navbar-brand {
+        font-size: 18px;
+    }
+
+    .seacrhbar {
+        width: 120px;
+        padding: 4px 8px;
+    }
+
+    .bc {
+        padding: 4px 8px;
+        font-size: 12px;
+    }
+
+    .cartco {
+        padding: 0px 4px;
+        font-size: 9px;
+    }
 }
