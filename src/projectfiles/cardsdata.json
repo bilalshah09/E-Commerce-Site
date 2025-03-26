@@ -1,0 +1,98 @@
+[
+    {
+        "id":1,
+        "image":"samsung s25 ultra.png",
+        "title":"Samsung S25 Ultra",
+        "price":"1,39,999"
+    },
+    {
+        "id":2,
+        "image":"iphone 15 pro max.png",
+        "title":"iphone 15 pro max",
+        "price":"1,48,999"
+    },
+    {
+        "id":3,
+        "image":"nothing 3a.png",
+        "title":"nothing 3a",
+        "price":"22,599"
+    },
+    {
+        "id":4,
+        "image":"nothing 3apro.png",
+        "title":"nothing 3apro",
+        "price":"28,599"
+    },
+    {
+        "id":5,
+        "image":"oneplus buds.png",
+        "title":"oneplus tws",
+        "price":"5,899"
+    },
+    {
+        "id":6,
+        "image":"marshal speaker.png",
+        "title":"marshal speaker",
+        "price":"24,999"
+    },
+    {
+        "id":7,
+        "image":"oneplus neckband.png",
+        "title":"oneplus neckband",
+        "price":"1,799"
+    },
+    {
+        "id":8,
+        "image":"casio watch.png",
+        "title":"casio g-shock",
+        "price":"5,899"
+    },
+    {
+        "id":9,
+        "image":"benyar.png",
+        "title":"Benyar skeliton",
+        "price":"3,899"
+    },
+    {
+        "id":10,
+        "image":"invictia.png",
+        "title":"Invictia pro drivers",
+        "price":"9,449"
+    },
+    {
+        "id":11,
+        "image":"casiosun.png",
+        "title":"Casio sunburst dail",
+        "price":"3,799"
+    },
+    {
+        "id":12,
+        "image":"crono.png",
+        "title":"Casio cronograph",
+        "price":"12,359"
+    },
+    {
+        "id":13,
+        "image":"seiko.png",
+        "title":"Seiko sports 5",
+        "price":"30,999"
+    },
+    {
+        "id":14,
+        "image":"op13.png",
+        "title":"oneplus 13",
+        "price":"74,499"
+    },
+    {
+        "id":15,
+        "image":"mac.png",
+        "title":"Macbook m2 pro",
+        "price":"2,60,999"
+    },
+    {
+        "id":16,
+        "image":"s25.png",
+        "title":"Samsung 25",
+        "price":"69,999"
+    }
+]

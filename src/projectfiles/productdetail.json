@@ -1,0 +1,122 @@
+[
+    {
+        "id": 1,
+        "image": "samsung s25 ultra.png",
+        "title": "Samsung S25 Ultra",
+        "price": "1,39,999",
+        "description": "The latest Samsung flagship with a powerful camera, AI features, and a stunning display."
+    },
+    {
+        "id": 2,
+        "image": "iphone 15 pro max.png",
+        "title": "iPhone 15 Pro Max",
+        "price": "1,48,999",
+        "description": "Apple's most advanced smartphone with an A17 chip, ProMotion display, and incredible battery life."
+    },
+    {
+        "id": 3,
+        "image": "nothing 3a.png",
+        "title": "Nothing 3A",
+        "price": "22,599",
+        "description": "A minimalistic design with a transparent back and smooth performance."
+    },
+    {
+        "id": 4,
+        "image": "nothing 3apro.png",
+        "title": "Nothing 3A Pro",
+        "price": "28,599",
+        "description": "Pro version with enhanced camera, bigger battery, and faster performance."
+    },
+    {
+        "id": 5,
+        "image": "oneplus buds.png",
+        "title": "Oppo TWS",
+        "price": "1,799",
+        "description": "Wireless earbuds with deep bass and noise cancellation."
+    },
+    {
+        "id": 6,
+        "image": "marshal speaker.png",
+        "title": "Marshall Speaker",
+        "price": "24,999",
+        "description": "Premium wireless speaker with signature Marshall sound quality."
+    },
+    {
+        "id": 7,
+        "image": "oneplus neckband.png",
+        "title": "OnePlus Neckband",
+        "price": "1,799",
+        "description": "Lightweight neckband earphones with long battery life."
+    },
+    {
+        "id": 8,
+        "image": "casio watch.png",
+        "title": "Casio Watch",
+        "price": "5,899",
+        "description": "Classic Casio digital watch with water resistance and LED backlight."
+    },
+    {
+        "id":9,
+        "image":"benyar.png",
+        "title":"Benyar skeliton",
+        "price":"3,899",
+        "description": "Classic Casio digital watch with water resistance and LED backlight."
+
+    },
+    {
+        "id":10,
+        "image":"invictia.png",
+        "title":"Invictia pro drivers",
+        "price":"9,449",
+        "description": "Classic Casio digital watch with water resistance and LED backlight."
+
+    },
+    {
+        "id":11,
+        "image":"casiosun.png",
+        "title":"Casio sunburst dail",
+        "price":"3,799",
+        "description": "Classic Casio digital watch with water resistance and LED backlight."
+
+    },
+    {
+        "id":12,
+        "image":"crono.png",
+        "title":"Casio cronograph",
+        "price":"12,359",
+        "description": "Classic Casio digital watch with water resistance and LED backlight."
+
+    },
+    {
+        "id":13,
+        "image":"seiko.png",
+        "title":"Seiko sports 5",
+        "price":"30,999",
+        "description": "Classic Casio digital watch with water resistance and LED backlight."
+
+    },
+    {
+        "id":14,
+        "image":"op13.png",
+        "title":"oneplus 13",
+        "price":"74,499",
+        "description": "Classic Casio digital watch with water resistance and LED backlight."
+
+    },
+    {
+        "id":15,
+        "image":"mac.png",
+        "title":"Macbook m2 pro",
+        "price":"2,60,999",
+        "description": "Classic Casio digital watch with water resistance and LED backlight."
+
+    },
+    {
+        "id":16,
+        "image":"s25.png",
+        "title":"Samsung 25",
+        "price":"69,999",
+        "description": "Classic Casio digital watch with water resistance and LED backlight."
+
+    }
+]
