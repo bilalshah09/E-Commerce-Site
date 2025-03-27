@@ -45,12 +45,7 @@ function MyCart({ updateCartCount }) {
         updateCart(updatedCart);
     };
 
-    const clearCart = () => {
-        setCart([]);
-        localStorage.removeItem("cart");
-        updateCartCount(0);
-        navigate("/");
-    };
+    
 
     const updateCart = (updatedCart) => {
         setCart(updatedCart);
@@ -60,7 +55,7 @@ function MyCart({ updateCartCount }) {
 
     return (
         <div>
-            <h2 className="mcal">Cart</h2>
+
 
             {cart.length > 0 ? (
                 <div className="cart-container">
@@ -88,13 +83,15 @@ function MyCart({ updateCartCount }) {
                     <h3 className="total-price">Total: ₹{formatPrice(totalPrice)}
                     </h3>
 
-                    <button className="bcc" onClick={clearCart}>
-                        Clear Cart
-                    </button>
+                    
                 </div>
             ) : (
-                <p className="mcem">Your cart is empty.</p>
-            )}
+                <div className="empty-cart-container">
+                    <h3 className="mcem">Your cart is empty.</h3>
+                    <button className="batcp1" onClick={() => navigate("/")}>
+                        Back to Products
+                    </button>
+                </div>)}
         </div>
     );
 }

@@ -1,61 +1,43 @@
 import React, { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import productsData from "./cardsdata.json";
 import "./cardsdata.css";
 
-function CardsData({ searchQuery = "", setCartCount }) {
+function CardsData({ searchQuery = "" }) {
+    const location = useLocation();
     const navigate = useNavigate();
-    const [cartItems, setCartItems] = useState([]);
     const [view] = useState("grid");
     const [sortOrder, setSortOrder] = useState("relevance");
     const [filteredProducts, setFilteredProducts] = useState([]);
 
     useEffect(() => {
-        const cart = JSON.parse(localStorage.getItem("cart")) || [];
-        setCartItems(cart.map(item => item.id));
-        sortProducts(productsData, searchQuery, sortOrder, cart);
-    }, [searchQuery, sortOrder]);  
+        const params = new URLSearchParams(location.search);
+        const sortOption = params.get("sort") || "relevance";
+        setSortOrder(sortOption);
+        sortProducts(productsData, searchQuery, sortOption);
+    }, [searchQuery, location.search]);
 
-    const sortProducts = (products, query, order, cart) => {
+    const sortProducts = (products, query, order) => {
         let sortedProducts = [...products].filter(product =>
             product.title.toLowerCase().includes(query.toLowerCase())
         );
 
-        const cartProductIds = cart.map(item => item.id);
-        sortedProducts.sort((a, b) => {
-            const aInCart = cartProductIds.includes(a.id);
-            const bInCart = cartProductIds.includes(b.id);
-
-            if (aInCart && !bInCart) return -1;
-            if (!aInCart && bInCart) return 1;
-
-            if (order === "lowToHigh") {
-                return parseFloat(a.price.replace(/,/g, "")) - parseFloat(b.price.replace(/,/g, ""));
-            } else if (order === "highToLow") {
-                return parseFloat(b.price.replace(/,/g, "")) - parseFloat(a.price.replace(/,/g, ""));
-            }
-
-            return 0; 
-        });
+        if (order === "lowToHigh") {
+            sortedProducts.sort((a, b) => 
+                parseFloat(a.price.replace(/,/g, "")) - parseFloat(b.price.replace(/,/g, ""))
+            );
+        } else if (order === "highToLow") {
+            sortedProducts.sort((a, b) => 
+                parseFloat(b.price.replace(/,/g, "")) - parseFloat(a.price.replace(/,/g, ""))
+            );
+        }
 
         setFilteredProducts(sortedProducts);
     };
 
-    const handleAddToCart = (product) => {
-        let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-        const existingProductIndex = cart.findIndex(item => item.id === product.id);
-        if (existingProductIndex !== -1) {
-            cart[existingProductIndex].quantity += 1;
-        } else {
-            cart.unshift({ ...product, quantity: 1 });
-        }
-
-        localStorage.setItem("cart", JSON.stringify(cart));
-        setCartCount(cart.reduce((acc, item) => acc + item.quantity, 0));
-        setCartItems(cart.map(item => item.id));
-
-        sortProducts(productsData, searchQuery, sortOrder, cart);
+    const handleSortChange = (event) => {
+        const selectedSort = event.target.value;
+        navigate(`?sort=${selectedSort}`);
     };
 
     return (
@@ -64,10 +46,7 @@ function CardsData({ searchQuery = "", setCartCount }) {
                 <span>{filteredProducts.length} products</span>
                 <div className="sort-options">
                     <label>Sort by:</label>
-                    <select
-                        value={sortOrder}
-                        onChange={(e) => setSortOrder(e.target.value)}
-                    >
+                    <select value={sortOrder} onChange={handleSortChange}>
                         <option value="relevance">Relevance</option>
                         <option value="lowToHigh">Price low to high</option>
                         <option value="highToLow">Price high to low</option>
@@ -79,23 +58,18 @@ function CardsData({ searchQuery = "", setCartCount }) {
                 {filteredProducts.length > 0 ? (
                     filteredProducts.map((product) => (
                         <div key={product.id} className={`card ${view}`}>
-                            <Link to={`/product/${product.id}`} className="card-link">
-                                <img src={product.image} className="card-img-top" alt={product.title} />
+                            <Link to={`/product/${product.id}${location.search}`} className="card-link">
+                                <img 
+                                    src={`/images/${product.image}`} 
+                                    className="card-img-top" 
+                                    alt={product.title} 
+                                    onError={(e) => e.target.src = "/images/default.png"}
+                                />
                                 <div className="card-body">
                                     <h5 className="card-title">{product.title}</h5>
                                     <p className="card-price">₹{product.price}</p>
                                 </div>
                             </Link>
-
-                            {cartItems.includes(product.id) ? (
-                                <button className="batc" onClick={() => navigate("/mycart")}>
-                                    View in Cart
-                                </button>
-                            ) : (
-                                <button className="batc" onClick={() => handleAddToCart(product)}>
-                                    Add to Cart
-                                </button>
-                            )}
                         </div>
                     ))
                 ) : (

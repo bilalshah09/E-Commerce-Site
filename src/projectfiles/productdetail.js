@@ -6,21 +6,36 @@ import "./productdetail.css";
 function ProductDetails({ updateCartCount }) {
     const { id } = useParams();
     const navigate = useNavigate();
-    const [showPopup] = useState(false);
     const [product, setProduct] = useState(null);
-    const [isInCart] = useState(false);
-
+    const [isInCart, setIsInCart] = useState(false);
 
     useEffect(() => {
         const foundProduct = ProductData.find((item) => item.id.toString() === id);
         setProduct(foundProduct);
+
+        const cart = JSON.parse(localStorage.getItem("cart")) || [];
+        setIsInCart(cart.some(item => item.id === foundProduct?.id));
     }, [id]);
+
+    const handleAddToCart = () => {
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        
+        const existingProductIndex = cart.findIndex(item => item.id === product.id);
+        if (existingProductIndex !== -1) {
+            cart[existingProductIndex].quantity += 1;
+        } else {
+            cart.push({ ...product, quantity: 1 });
+        }
+
+        localStorage.setItem("cart", JSON.stringify(cart));
+        updateCartCount(cart.reduce((acc, item) => acc + item.quantity, 0));
+        setIsInCart(true);
+    };
 
     if (!product) {
         return <h2>Product not found</h2>;
     }
 
-    
     return (
         <div className="product-detail-container">
             <img src={`/images/${product.image}`} alt={product.title} className="product-image" />
@@ -29,21 +44,22 @@ function ProductDetails({ updateCartCount }) {
                 <p className="product-price">₹{product.price}</p>
                 <p>{product.description}</p>
 
-                {!isInCart ? (
-                    <button className="batcp" onClick={() => navigate("/")}>Back to Products</button>
-                ) : (
-                    <button className="batcp" onClick={() => navigate("/mycart")}>View in Cart</button>
-                )}
-            </div>
+                <h3>Key Features:</h3>
+                <p>Experience the best-in-class technology with these amazing features:</p>
+                <ul>
+                    {product.features.map((feature, index) => (
+                        <li key={index}>{feature}</li>
+                    ))}
+                </ul>
 
-            {showPopup && (
-                <div className="popup-overlay">
-                    <div className="popup-content">
-                        <p>✅ Successfully added to cart!</p>
-                    </div>
+                <div className="button-group">
+                    {!isInCart ? (
+                        <button className="batc" onClick={handleAddToCart}>Add to Cart</button>
+                    ) : (
+                        <button className="batc" onClick={() => navigate("/mycart")}>View in Cart</button>
+                    )}
                 </div>
-            )}
-
+            </div>
         </div>
     );
 }

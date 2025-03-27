@@ -1,4 +1,20 @@
-.navbar-brand {
+.navbar {
+    background-color: #1458ec;
+    padding: 0 !important;
+    margin: 0 !important;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    height: 60px;
+
+    .container-fluid {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
+.navbar-brand{
     color: #FFFFFF !important;
     font-weight: bolder;
     font-style: italic;
@@ -6,46 +22,24 @@
     font-size: 30px;
     margin-left: 10px;
 }
-.App-logo{
-    width: 30px;
-    height: 30px;
-    margin-right: 5px;
-}
 
-.product {
-    text-align: center;
-    margin-top: 10px;
-    margin-bottom: 20px;
-}
-
-.seacrhbar {
-    border-radius: 5px;
-    padding: 7px 14px;
-    margin-left: 30px;
-    background-color: #FFFFFF;
-    width: 260px;
-    border: none;
-    outline: none;
-}
-
-
-
-
-.navbar {
-    background-color: #1458ec;
-    max-height: 60px;
-    padding: 0 !important;
-    margin: 0 !important;
+.navbar-top {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    position: fixed;
-    top: 0;
     width: 100%;
-    z-index: 1000;
+    padding: 0px;
 }
 
 
 
+.search-container {
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    
+}
 
 .bc {
     background-color: #1458ec;
@@ -53,7 +47,7 @@
     border-radius: 5px;
     outline: none;
     border: none;
-    padding: 7px 14px;
+    padding: 3px 7px;
     margin-left: 30px;
     margin-right: 10px;
 }
@@ -69,3 +63,32 @@
     margin-left: 5px;   
 }
 
+/* Desktop view */
+@media (min-width: 992px) {
+    .search-container {
+        padding: 0;
+        width: auto;
+        
+    }
+    
+}
+
+/* Mobile view */
+@media (max-width: 767px) {
+    .navbar {
+        flex-direction: column;
+        height: auto;
+        padding-bottom: 10px;
+    }
+
+    .search-container {
+        margin-top: 0px;
+    }
+    .cartco{
+        padding: 0px 5px;
+        font-size: 12px;
+    }
+    .navbar-brand{
+        font-size: 25px;
+    }
+}

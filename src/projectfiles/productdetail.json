@@ -4,119 +4,207 @@
         "image": "samsung s25 ultra.png",
         "title": "Samsung S25 Ultra",
         "price": "1,39,999",
-        "description": "The latest Samsung flagship with a powerful camera, AI features, and a stunning display."
+        "description": "The latest Samsung flagship with a powerful AI-driven camera, stunning AMOLED display, and top-tier performance.",
+        "features": [
+            "200MP quad-camera with 100x Space Zoom",
+            "6.8-inch Dynamic AMOLED 2X display, 120Hz refresh rate",
+            "Snapdragon 8 Gen 3 processor with AI enhancements",
+            "5000mAh battery with 45W fast charging"
+        ]
     },
     {
         "id": 2,
         "image": "iphone 15 pro max.png",
         "title": "iPhone 15 Pro Max",
         "price": "1,48,999",
-        "description": "Apple's most advanced smartphone with an A17 chip, ProMotion display, and incredible battery life."
+        "description": "Apple’s most advanced smartphone with a titanium design, ProMotion display, and A17 Pro chip for superior performance.",
+        "features": [
+            "6.7-inch Super Retina XDR display with ProMotion",
+            "A17 Pro chip for unmatched speed and efficiency",
+            "48MP main camera with improved Night mode",
+            "Titanium build for durability and a premium feel"
+        ]
     },
     {
         "id": 3,
         "image": "nothing 3a.png",
         "title": "Nothing 3A",
         "price": "22,599",
-        "description": "A minimalistic design with a transparent back and smooth performance."
+        "description": "A minimalist smartphone with a transparent back, smooth UI, and a balanced performance at an affordable price.",
+        "features": [
+            "6.55-inch OLED display with 120Hz refresh rate",
+            "Dual 50MP rear cameras with ultra-wide support",
+            "Custom Nothing OS based on Android 14",
+            "4500mAh battery with 33W fast charging"
+        ]
     },
     {
         "id": 4,
-        "image": "nothing 3apro.png",
+        "image": "nothing 3a pro.png",
         "title": "Nothing 3A Pro",
         "price": "28,599",
-        "description": "Pro version with enhanced camera, bigger battery, and faster performance."
+        "description": "A pro-level version of the Nothing 3A with better cameras, a bigger battery, and an even smoother performance.",
+        "features": [
+            "6.7-inch AMOLED display with 144Hz refresh rate",
+            "Dual 50MP AI-enhanced cameras with OIS",
+            "Snapdragon 8+ Gen 1 processor",
+            "5000mAh battery with 50W fast charging"
+        ]
     },
     {
         "id": 5,
         "image": "oneplus buds.png",
         "title": "Oppo TWS",
         "price": "1,799",
-        "description": "Wireless earbuds with deep bass and noise cancellation."
+        "description": "Wireless earbuds with deep bass, active noise cancellation, and a long-lasting battery.",
+        "features": [
+            "40dB Active Noise Cancellation",
+            "10mm dynamic drivers for deep bass",
+            "28 hours of battery life with the case",
+            "Bluetooth 5.2 for stable connectivity"
+        ]
     },
     {
         "id": 6,
         "image": "marshal speaker.png",
         "title": "Marshall Speaker",
         "price": "24,999",
-        "description": "Premium wireless speaker with signature Marshall sound quality."
+        "description": "Premium wireless speaker with rich sound quality and a classic Marshall vintage design.",
+        "features": [
+            "Iconic Marshall design with premium build",
+            "Deep bass and crisp trebles for studio-quality sound",
+            "Bluetooth 5.0 for seamless connectivity",
+            "20-hour battery life with quick charge support"
+        ]
     },
     {
         "id": 7,
         "image": "oneplus neckband.png",
         "title": "OnePlus Neckband",
         "price": "1,799",
-        "description": "Lightweight neckband earphones with long battery life."
+        "description": "Lightweight and comfortable neckband earphones with long battery life and fast charging.",
+        "features": [
+            "AI noise cancellation for calls",
+            "20 hours of battery life on a single charge",
+            "10-minute fast charge for 10 hours of playtime",
+            "IP55 water and sweat resistance"
+        ]
     },
     {
         "id": 8,
         "image": "casio watch.png",
         "title": "Casio Watch",
         "price": "5,899",
-        "description": "Classic Casio digital watch with water resistance and LED backlight."
+        "description": "Classic Casio digital watch with a durable build and LED backlight for night visibility.",
+        "features": [
+            "Water-resistant up to 50 meters",
+            "LED backlight for visibility in low light",
+            "Durable stainless steel build",
+            "Multi-function alarm and stopwatch"
+        ]
     },
     {
-        "id":9,
-        "image":"benyar.png",
-        "title":"Benyar skeliton",
-        "price":"3,899",
-        "description": "Classic Casio digital watch with water resistance and LED backlight."
-
+        "id": 9,
+        "image": "benyar.png",
+        "title": "Benyar Skeleton",
+        "price": "3,899",
+        "description": "Stylish skeleton watch with a transparent dial and automatic movement.",
+        "features": [
+            "Automatic self-winding movement",
+            "Transparent dial with exposed gears",
+            "Water-resistant up to 30 meters",
+            "Leather strap for a premium feel"
+        ]
     },
     {
-        "id":10,
-        "image":"invictia.png",
-        "title":"Invictia pro drivers",
-        "price":"9,449",
-        "description": "Classic Casio digital watch with water resistance and LED backlight."
-
+        "id": 10,
+        "image": "invictia.png",
+        "title": "Invicta Pro Diver",
+        "price": "9,449",
+        "description": "Professional diver’s watch with a stainless steel body and rotating bezel.",
+        "features": [
+            "Water-resistant up to 200 meters",
+            "Japanese automatic movement",
+            "Stainless steel case and bracelet",
+            "Luminous hands for underwater visibility"
+        ]
     },
     {
-        "id":11,
-        "image":"casiosun.png",
-        "title":"Casio sunburst dail",
-        "price":"3,799",
-        "description": "Classic Casio digital watch with water resistance and LED backlight."
-
+        "id": 11,
+        "image": "casiosun.png",
+        "title": "Casio Sunburst Dial",
+        "price": "3,799",
+        "description": "Casio's classic watch with a beautiful sunburst dial and a sleek metal finish.",
+        "features": [
+            "Sunburst effect dial for a premium look",
+            "Water-resistant design",
+            "LED backlight for night visibility",
+            "Scratch-resistant mineral glass"
+        ]
     },
     {
-        "id":12,
-        "image":"crono.png",
-        "title":"Casio cronograph",
-        "price":"12,359",
-        "description": "Classic Casio digital watch with water resistance and LED backlight."
-
+        "id": 12,
+        "image": "crono.png",
+        "title": "Casio Chronograph",
+        "price": "12,359",
+        "description": "A functional chronograph watch with a durable stainless steel case.",
+        "features": [
+            "Precise chronograph functionality",
+            "Water-resistant up to 100 meters",
+            "Stainless steel strap for durability",
+            "Scratch-resistant glass"
+        ]
     },
     {
-        "id":13,
-        "image":"seiko.png",
-        "title":"Seiko sports 5",
-        "price":"30,999",
-        "description": "Classic Casio digital watch with water resistance and LED backlight."
-
+        "id": 13,
+        "image": "seiko.png",
+        "title": "Seiko Sports 5",
+        "price": "30,999",
+        "description": "A robust automatic watch with Seiko’s signature sports design and superior build quality.",
+        "features": [
+            "Automatic movement with 41-hour power reserve",
+            "Hardlex crystal for scratch resistance",
+            "Water-resistant up to 100 meters",
+            "Luminous hands for low-light readability"
+        ]
     },
     {
-        "id":14,
-        "image":"op13.png",
-        "title":"oneplus 13",
-        "price":"74,499",
-        "description": "Classic Casio digital watch with water resistance and LED backlight."
-
+        "id": 14,
+        "image": "op13.png",
+        "title": "OnePlus 13",
+        "price": "74,499",
+        "description": "OnePlus flagship smartphone with an advanced camera system and ultra-fast performance.",
+        "features": [
+            "50MP Hasselblad triple-camera setup",
+            "6.7-inch AMOLED display with LTPO 4.0",
+            "Snapdragon 8 Gen 3 processor",
+            "5500mAh battery with 80W fast charging"
+        ]
     },
     {
-        "id":15,
-        "image":"mac.png",
-        "title":"Macbook m2 pro",
-        "price":"2,60,999",
-        "description": "Classic Casio digital watch with water resistance and LED backlight."
-
+        "id": 15,
+        "image": "mac.png",
+        "title": "MacBook M2 Pro",
+        "price": "2,60,999",
+        "description": "Apple’s powerful MacBook with M2 Pro chip for unmatched performance and efficiency.",
+        "features": [
+            "M2 Pro chip with 10-core CPU and 16-core GPU",
+            "14-inch Liquid Retina XDR display",
+            "Up to 17 hours of battery life",
+            "MagSafe 3 fast charging support"
+        ]
     },
     {
-        "id":16,
-        "image":"s25.png",
-        "title":"Samsung 25",
-        "price":"69,999",
-        "description": "Classic Casio digital watch with water resistance and LED backlight."
-
+        "id": 16,
+        "image": "s25.png",
+        "title": "Samsung S25",
+        "price": "69,999",
+        "description": "Samsung's latest smartphone with a sleek design and top-tier performance.",
+        "features": [
+            "6.5-inch AMOLED display with 120Hz refresh rate",
+            "Snapdragon 8 Gen 2 processor",
+            "50MP AI-powered main camera",
+            "4500mAh battery with 25W fast charging"
+        ]
     }
 ]

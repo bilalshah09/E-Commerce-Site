@@ -12,47 +12,30 @@ function NavBarData({ searchQuery, setSearchQuery, cartCount }) {
 
     return (
         <nav className="navbar navbar-expand-lg">
-            <Link to="/" className="navbar-brand d-flex align-items-center text-white">
-                SwiftCart
-            </Link>
-
-            <button 
-                className="navbar-toggler" 
-                type="button" 
-                data-bs-toggle="collapse" 
-                data-bs-target="#navbarSupportedContent" 
-                aria-controls="navbarSupportedContent" 
-                aria-expanded="false" 
-                aria-label="Toggle navigation"
-            >
-                <i className="bi bi-list text-white"></i>
-            </button>
-
-            <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul className="navbar-nav me-auto">
-                    <li className="nav-item">
-                        <input
-                            className="seacrhbar"
-                            type="text"
-                            placeholder="Search..."
-                            value={searchQuery}
-                            onChange={handleSearch}
-                        />
-                    </li>
-                </ul>
-            </div>
-
-            <div className="d-flex align-items-center position-relative">
-                <Link to="/mycart" className="position-relative">
-                    <button className="bc">
-                        <i className="bi bi-cart-fill"></i> Cart
-                        {cartCount > 0 && (
-                            <span className="cartco">
-                                {cartCount}
-                            </span>
-                        )}
-                    </button>
-                </Link>
+            <div className="container-fluid d-flex flex-column flex-lg-row align-items-center">
+                <div className="d-flex justify-content-between w-100 align-items-center navbar-top">
+                    <Link to="/" className="navbar-brand text-white">
+                        SwiftCart
+                    </Link>
+                    <Link to="/mycart" className="position-relative">
+                        <button className="bc">
+                            <i className="bi bi-cart-fill"></i> Cart
+                            {cartCount > 0 && (
+                                <span className="cartco">{cartCount}</span>
+                            )}
+                        </button>
+                    </Link>
+                </div>
+                <div className="search-container">
+                    <input
+                        className="searchbar"
+                        type="text"
+                        placeholder="Search..."
+                        value={searchQuery}
+                        onChange={handleSearch}
+                        style={{borderRadius:"5px", border: "none", outline: "none", padding: "6px  60px"}}
+                    />
+                </div>
             </div>
         </nav>
     );

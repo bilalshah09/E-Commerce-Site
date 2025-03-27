@@ -1,10 +1,8 @@
-
-
 .product-detail-container {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 20px; 
+    gap: 20px;
     padding: 40px;
     max-width: 900px;
     margin: auto;
@@ -14,7 +12,7 @@
 }
 
 .product-image {
-    width: 300px; 
+    width: 300px;
     height: auto;
     border-radius: 10px;
     object-fit: cover;
@@ -22,7 +20,7 @@
 
 .product-price {
     font-size: 16px;
-    color: #333;
+    color: black;
     margin-bottom: 15px;
 }
 
@@ -34,75 +32,74 @@
 .product-info h1 {
     font-size: 28px;
     margin-bottom: 10px;
-    color: #1d2228;
+    color: black;
 }
 
-.product-info h3 {
-    font-size: 22px;
-    color: #007bff; 
-    margin-bottom: 10px;
-}
 
 .product-info p {
     font-size: 16px;
-    color: #1d2228;
+    color: black;
     margin-bottom: 20px;
 }
 
-
-.button-group {
-    display: flex;
-    gap: 15px;
+/* Features Styling */
+.features-list {
+    list-style-type: disc;
+    padding-left: 20px;
 }
 
-.button-group button {
-    padding: 10px 20px;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: 0.3s ease-in-out;
+.features-list li {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 5px;
 }
 
-
-.batcp{
+.batc {
     background: #1458ec;
     color: #FFFFFF;
     border: none;
     padding: 7px 14px;
     border-radius: 5px;
     cursor: pointer;
+    margin-left: 10px;
     transition: background 0.3s;
 }
-.batcp:hover{
+
+.batc:hover {
     background: #1651d0;
 }
 
-.popup-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
+
+@media (max-width: 767px) {
+    .product-detail-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 20px;
+        gap: 15px;
+        margin-top: 38px;
+        
+    }
+
+    .product-image {
+        width: 100%;
+        height: auto;
+        padding: 8px;
+    }
+
+    .product-info {
+        text-align: center;
+        width: 90%;
+    }
+
+    .batcp {
+        padding: 6px 12px;
+        font-size: 14px;
+        
+    }
+    .batc{
+        padding: 6px 12px;
+        font-size: 14px;
+    }
 }
-
-.popup-content {
-    background: #e1e2e2;
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-}
-
-.popup-buttons {
-    margin-top: 10px;
-    display: flex;
-    justify-content: space-around;
-}
-
-
